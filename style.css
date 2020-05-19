@@ -1,4 +1,10 @@
 body {
   margin-top:70px;
-  
+  background: #333;
+  color: #fff;
+
+  background-image: url("./doctype-hi-res.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
 }
