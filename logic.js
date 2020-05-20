@@ -1,6 +1,10 @@
 $(document).ready(function(){
 
-  $("#timeInput").on("input", () => {
+  $('.card.bg-danger.mb-2').on("click", () => {
+    $('.card.bg-danger.mb-2').replaceWith(input_template("fte"));
+  });
+
+  $(document).on("input", "#timeInput", () => {
     var a = parseFloat($("#timeInput").val());
 
     if (isNaN(a)) {
@@ -15,12 +19,7 @@ $(document).ready(function(){
       $('#fteout').html(0.2*a);
       $('#shout').html(8*a);
     }
-  })
-
-  $('.card.bg-danger.mb-2').on("click", () => {
-    $('.card.bg-danger.mb-2').replaceWith(input_template("fte"));
   });
-
 
 });
 
