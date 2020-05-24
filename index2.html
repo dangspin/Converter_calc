@@ -17,6 +17,15 @@
       <div class="row">
         <div class="col-md-6 mx-auto">
           <h1 class="display-4 text-primary text-center mb-3">Time Converter</h1>
+          <form>
+              <div class="form-group mb-4">
+                <input
+                id="timeInput"
+                type="number"
+                class="form-control form-control-lg"
+                placeholder="Enter ${name_of_card} ...">
+              </div>
+          </form>
           <div id="output">
             <div class="card bg-danger mb-4">
               <div class="card-body">
@@ -24,31 +33,20 @@
                 <div id="spout"></div>
               </div>
             </div>
-            <div class="card bg-info mb-4">
-              <div class="card-body">
-                <h4>FTE:</h4>
-                <div id="fout"></div>
-              </div>
-            </div>
+          </div>
 
-            <div class="card bg-primary mb-4">
-              <div class="card-body">
-                <h4>Standard Hours:</h4>
-                <div id="shout"></div>
-              </div>
-            </div>
-
-            <div class="card bg-warning mb-4">
-              <div class="card-body">
-                <h4>Person Day:</h4>
-                <div id="pdout"></div>
-              </div>
+          <div class="card bg-info mb-4">
+            <div class="card-body">
+              <h4>FTE:</h4>
+              <div id="fout"></div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
 
-    <script src="./logic.js"></script>
+    <script src="./logic2.js">
+    </script>
   </body>
 </html>

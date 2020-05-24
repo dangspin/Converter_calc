@@ -2,47 +2,47 @@ $(document).ready(function(){
 
   var activeEle = NaN;
 
-  $("#output").on("click", '.card.bg-danger.mb-2', function() {
+  $("#output").on("click", '.card.bg-danger.mb-4', function() {
     if (activeEle) {
       back_to_card(activeEle, $("form>.form-group"))
     }
-    var ele = $('.card.bg-danger.mb-2');
+    var ele = $('.card.bg-danger.mb-4');
     activeEle = ele;
     var text = ele.text().trim();
     ele.replaceWith(input_template(text));
   })
 
-  $("#output").on("click", '.card.bg-info.mb-2', function() {
+  $("#output").on("click", '.card.bg-info.mb-4', function() {
     if (activeEle) {
       back_to_card(activeEle, $("form>.form-group"))
     }
-    var ele = $('.card.bg-info.mb-2');
+    var ele = $('.card.bg-info.mb-4');
     activeEle = ele;
     var text = ele.text().trim();
     ele.replaceWith(input_template(text));
   })
 
-  $("#output").on("click", '.card.bg-primary.mb-2', function() {
+  $("#output").on("click", '.card.bg-primary.mb-4', function() {
     if (activeEle) {
       back_to_card(activeEle, $("form>.form-group"))
     }
-    var ele = $('.card.bg-primary.mb-2');
+    var ele = $('.card.bg-primary.mb-4');
     activeEle = ele;
     var text = ele.text().trim();
     ele.replaceWith(input_template(text));
   })
 
-  $("#output").on("click", '.card.bg-warning.mb-2', function() {
+  $("#output").on("click", '.card.bg-warning.mb-4', function() {
     if (activeEle) {
       back_to_card(activeEle, $("form>.form-group"))
     }
-    var ele = $('.card.bg-warning.mb-2');
+    var ele = $('.card.bg-warning.mb-4');
     activeEle = ele;
     var text = ele.text().trim();
     ele.replaceWith(input_template(text));
   })
 
-  $(document).mouseup(function(e) {
+  $(document).on("mouseup", function(e) {
     var container = $("#output");
 
     // if the target of the click isn't the container nor a descendant of the container
@@ -50,26 +50,27 @@ $(document).ready(function(){
     {
       if (activeEle) {
         back_to_card(activeEle, $("form>.form-group"));
+        activeEle = NaN;
       }
     }
   });
 
-  // $(document).on("input", "#timeInput", () => {
-  //   var a = parseFloat($("#timeInput").val());
-  //
-  //   if (isNaN(a)) {
-  //     a = 0;
-  //     $('#spout').html(a/0.183);
-  //     $('#pdout').html(a + "  Person Day");
-  //     $('#fout').html(0.2*a);
-  //     $('#shout').html(8*a);
-  //   } else {
-  //     $('#spout').html(a/0.183);
-  //     $('#pdout').html(a + "  Person Day");
-  //     $('#fout').html(0.2*a);
-  //     $('#shout').html(8*a);
-  //   }
-  // });
+  $("#output").on("keyup", "#timeInput", function() {
+    var a = parseFloat($("#timeInput").val());
+
+    if (isNaN(a)) {
+      a = 0;
+      $('#spout').html(a/0.183);
+      $('#pdout').html(a + "  Person Day");
+      $('#fout').html(0.2*a);
+      $('#shout').html(8*a);
+    } else {
+      $('#spout').html(a/0.183);
+      $('#pdout').html(a + "  Person Day");
+      $('#fout').html(0.2*a);
+      $('#shout').html(8*a);
+    }
+  });
   function back_to_card(selector, ele) {
     var text = selector.text().trim();
     var color = selector.get(0).className.split(" ")[1].substring(3)
@@ -80,7 +81,7 @@ $(document).ready(function(){
 
 function card_template (name_of_card, color) {
   let id_name = getName(name_of_card)
-  return `<div class="card bg-${color} mb-2">
+  return `<div class="card bg-${color} mb-4">
     <div class="card-body">
       <h4>${name_of_card}</h4>
       <div id="${id_name}out"></div>
@@ -90,7 +91,7 @@ function card_template (name_of_card, color) {
 
 function input_template(name_of_card) {
   return `<form>
-    <div class="form-group">
+    <div class="form-group mb-4">
       <input
       id="timeInput"
       type="number"
